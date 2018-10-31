@@ -11,12 +11,12 @@ for i in range(len(df)):
         graph[df.iloc[i].stop_id] = []
 
     if i != len(df)-1:
-        if df.iloc[i+1].route_long_name == df.iloc[i].route_long_name and df.iloc[i+1].stop_id not in graph[df.iloc[i].stop_id]:
+        if df.iloc[i+1].route_long_name == df.iloc[i].route_long_name and df.iloc[i+1].stop_id not in graph[df.iloc[i].stop_id] and df.iloc[i+1].stop_id != df.iloc[i].stop_id:
             graph[df.iloc[i].stop_id].append(df.iloc[i+1].stop_id)
         else:
             pass
     if i !=0:
-        if df.iloc[i-1].route_long_name == df.iloc[i].route_long_name and df.iloc[i-1].stop_id not in graph[df.iloc[i].stop_id]:
+        if df.iloc[i-1].route_long_name == df.iloc[i].route_long_name and df.iloc[i-1].stop_id not in graph[df.iloc[i].stop_id] and df.iloc[i-1].stop_id != df.iloc[i].stop_id:
             graph[df.iloc[i].stop_id].append(df.iloc[i-1].stop_id)
         else:
             pass
